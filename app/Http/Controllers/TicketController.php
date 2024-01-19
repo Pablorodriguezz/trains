@@ -23,10 +23,10 @@ class TicketController extends Controller
     
     public function create()
     {
-        
+        $ticketTypes = TicketType::all();
         $trains = Train::all();
-
-        return view('tickets/create', ['ticketTypes' => TicketType::all(), 'trains' => $trains]);
+        return view('tickets.create', ['ticketTypes' => $ticketTypes, 'trains' => $trains]);
+        
     }
 
     
@@ -40,7 +40,7 @@ class TicketController extends Controller
         $ticket->train_id = $request->input('train_id');
         $ticket->save();
 
-        return redirect()->route('tickets.index');
+        return redirect('/tickets');
     }
 
     

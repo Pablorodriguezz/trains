@@ -25,7 +25,7 @@
                     <td><a href="{{ route('trains.show', $train->id) }}">{{ $train->passengers }}</a></td>
                     <td><a href="{{ route('trains.show', $train->id) }}">{{ $train->year }}</a></td>
                     <td>
-                        <a href="{{ route('trains.edit', $train->id) }}">Editar</a>
+                        <button type="submit"><a href="{{ route('trains.edit', $train->id) }}">Editar</a></button>
                         <form action="{{ route('trains.destroy', $train->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
@@ -37,6 +37,6 @@
 
     </table>
     <a href="{{ route('trains.create') }}">Crear tren</a>
-
+    <a href="{{url('/tickets')}}">Ir a tickets</a>
 </body>
 </html>

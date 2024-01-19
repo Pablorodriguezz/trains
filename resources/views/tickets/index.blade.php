@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    {{$tickets}}
+
     <table>
         <thead>
             <tr>
@@ -30,7 +30,7 @@
                     <td><a href="{{ route('tickets.show', $ticket->id) }}">{{ $ticket->ticketType->type }}</a></td>
                     <td><a href="{{ route('tickets.show', $ticket->id) }}">{{ $ticket->train->name }}</a></td>
                     <td>
-                        <a href="{{ route('tickets.edit', $ticket->id) }}">Editar</a>
+                        <button type="submit"><a href="{{ route('tickets.edit', $ticket->id) }}">Editar</a></button>
                         <form action="{{ route('tickets.destroy', $ticket->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
@@ -41,7 +41,8 @@
         </tbody>
 
     </table>
-    <a href="{{ route('tickets.create') }}">Crear ticket</a>
+    <button type="submit"><a href="{{ route('tickets.create') }}">Crear ticket</a></button>
+    <a href="{{url('/trains')}}">Ir a trenes</a>
 </body>
 
 </html>

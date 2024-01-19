@@ -22,10 +22,18 @@
         </select>
         <label for="train_id">Train</label>
         <select name="train_id" id="train_id">
-            @foreach ($trains as $train)
-                <option value="{{ $train->id }}">{{ $train->name }}</option>
-            @endforeach
+
+        
+            @if ($trains)
+                @foreach ($trains as $train)
+                    <option value="{{ $train->id }}">{{ $train->name }}</option>
+                @endforeach
+            @else
+                <option value="" disabled>No trains available</option>
+            @endif
+        
         </select>
+        
         <button type="submit">Crear</button>
     </form>
 

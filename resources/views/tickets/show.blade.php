@@ -33,7 +33,7 @@
 
             </tr>
         </tbody>
-
+        <a href="{{ route('tickets.create') }}">Crear ticket</a>
 </body>
 
 </html>
